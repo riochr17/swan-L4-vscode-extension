@@ -1,0 +1,46 @@
+{
+  "name": "swan-l4-vscode",
+  "displayName": "SWAN L4 Language Support",
+  "description": "Syntax highlighting, autocompletion snippets, and language configuration for the SWAN L4 DSL.",
+  "version": "1.0.0",
+  "publisher": "swan-l4",
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onLanguage:swan"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "swan",
+        "aliases": [
+          "SWAN L4",
+          "swan"
+        ],
+        "extensions": [
+          ".l4"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "swan",
+        "scopeName": "source.swan",
+        "path": "./syntaxes/swan.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "swan",
+        "path": "./snippets/snippets.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "Header Directive": {
+    "prefix": "TITLE",
+    "body": [
+      "TITLE ${1:Program Name}"
+    ],
+    "description": "SWAN L4 Header Directive"
+  },
+  "Define Call/Agent Macro": {
+    "prefix": "#DEFINE",
+    "body": [
+      "#DEFINE CALL_${1:MACRO_NAME} ${2:https://api.url}"
+    ],
+    "description": "Define Call or Agent macro"
+  },
+  "SAY Statement": {
+    "prefix": "SAY",
+    "body": [
+      "SAY ${1:message}"
+    ],
+    "description": "Output message or context interpolation"
+  },
+  "SAY THINK Statement": {
+    "prefix": "SAY THINK",
+    "body": [
+      "SAY THINK ${1:prompt}"
+    ],
+    "description": "Query LLM for spoken response"
+  },
+  "LISTEN Statement": {
+    "prefix": "LISTEN",
+    "body": [
+      "LISTEN"
+    ],
+    "description": "Wait and capture user text input"
+  },
+  "THINK Statement": {
+    "prefix": "THINK",
+    "body": [
+      "THINK ${1:instruction}"
+    ],
+    "description": "Execute language model query statement"
+  },
+  "ASK Statement": {
+    "prefix": "ASK",
+    "body": [
+      "ASK AGENT_${1:STOCK} ${2:instruction}"
+    ],
+    "description": "Query a defined agent macro"
+  },
+  "LOOP Block": {
+    "prefix": "LOOP",
+    "body": [
+      "LOOP:",
+      "\t${1:SAY message}"
+    ],
+    "description": "Define infinite execution loop block"
+  },
+  "IF Block": {
+    "prefix": "IF",
+    "body": [
+      "IF CONTAINS \"${1:value}\":",
+      "\t${2:SAY message}"
+    ],
+    "description": "Conditional scope block"
+  },
+  "CONTAINS Operator": {
+    "prefix": "CONTAINS",
+    "body": [
+      "CONTAINS \"${1:value}\""
+    ],
+    "description": "String verification condition check operator"
+  },
+  "READ Statement": {
+    "prefix": "READ",
+    "body": [
+      "READ ${1:./myfile.txt}"
+    ],
+    "description": "Read content from a file path"
+  },
+  "WRITE Statement": {
+    "prefix": "WRITE",
+    "body": [
+      "WRITE ${1:./myfile.txt} ${2:data}"
+    ],
+    "description": "Write text data to a file path"
+  }
+}

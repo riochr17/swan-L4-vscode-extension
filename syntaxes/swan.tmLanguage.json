@@ -1,0 +1,225 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "SWAN L4",
+  "scopeName": "source.swan",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#multiline-strings" },
+    { "include": "#strings" },
+    { "include": "#keywords-debug" },
+    { "include": "#conditionals-block" },
+    { "include": "#write-block" },
+    { "include": "#read-block" },
+    { "include": "#keywords" },
+    { "include": "#macros" },
+    { "include": "#variables" },
+    { "include": "#urls-paths" },
+    { "include": "#numbers" },
+    { "include": "#delimiters" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.swan",
+          "match": "//.*$"
+        }
+      ]
+    },
+    "multiline-strings": {
+      "name": "string.quoted.triple.swan",
+      "begin": "```",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.string.begin.swan" }
+      },
+      "end": "```",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.string.end.swan" }
+      },
+      "patterns": [
+        { "include": "#variables" }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.swan",
+      "begin": "\"",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.string.begin.swan" }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.string.end.swan" }
+      },
+      "patterns": [
+        { "include": "#variables" }
+      ]
+    },
+    "keywords-debug": {
+      "patterns": [
+        {
+          "name": "keyword.other.debug.swan",
+          "match": "\\[(SAY\\s+THINK|THINK|SAY|LISTEN|ASK|EXIT\\s+LOOP|CONTINUE\\s+LOOP|EXIT|ELSE|LOOP|TITLE|#DEFINE|CALL_[a-zA-Z0-9_]+|AGENT_[a-zA-Z0-9_]+)\\]"
+        }
+      ]
+    },
+    "conditionals-block": {
+      "patterns": [
+        {
+          "begin": "\\b(IF)\\b|(\\[IF\\])",
+          "beginCaptures": {
+            "1": { "name": "keyword.control.swan" },
+            "2": { "name": "keyword.control.debug.swan" }
+          },
+          "end": "(:)|(?=$)",
+          "endCaptures": {
+            "1": { "name": "punctuation.separator.colon.swan" }
+          },
+          "patterns": [
+            { "include": "#variables" },
+            { "include": "#strings" },
+            {
+              "name": "keyword.operator.word.swan",
+              "match": "\\bCONTAINS\\b"
+            },
+            {
+              "name": "keyword.operator.comparison.swan",
+              "match": ">=|<=|==|!=|>|<"
+            },
+            { "include": "#numbers" },
+            {
+              "name": "meta.expression.condition.swan",
+              "match": "[^:\\$\\s\"]+"
+            }
+          ]
+        }
+      ]
+    },
+    "write-block": {
+      "patterns": [
+        {
+          "begin": "\\b(WRITE)\\b|(\\[WRITE\\])",
+          "beginCaptures": {
+            "1": { "name": "keyword.other.swan" },
+            "2": { "name": "keyword.other.debug.swan" }
+          },
+          "end": "$",
+          "patterns": [
+            {
+              "match": "\\G\\s+(\\S+)",
+              "captures": {
+                "1": { "name": "constant.other.path.swan" }
+              }
+            },
+            { "include": "#variables" },
+            { "include": "#multiline-strings" },
+            { "include": "#strings" }
+          ]
+        }
+      ]
+    },
+    "read-block": {
+      "patterns": [
+        {
+          "begin": "\\b(READ)\\b|(\\[READ\\])",
+          "beginCaptures": {
+            "1": { "name": "keyword.other.swan" },
+            "2": { "name": "keyword.other.debug.swan" }
+          },
+          "end": "$",
+          "patterns": [
+            {
+              "match": "\\G\\s+(\\S+)",
+              "captures": {
+                "1": { "name": "constant.other.path.swan" }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.swan",
+          "match": "\\b(ELSE|LOOP)\\b"
+        },
+        {
+          "name": "keyword.control.flow.swan",
+          "match": "\\b(EXIT\\s+LOOP|CONTINUE\\s+LOOP|EXIT)\\b"
+        },
+        {
+          "name": "keyword.control.directive.swan",
+          "match": "#DEFINE\\b"
+        },
+        {
+          "name": "keyword.other.swan",
+          "match": "\\b(TITLE|SAY\\s+THINK|SAY|LISTEN|THINK|ASK)\\b"
+        },
+        {
+          "name": "keyword.operator.word.swan",
+          "match": "\\bCONTAINS\\b"
+        }
+      ]
+    },
+    "macros": {
+      "patterns": [
+        {
+          "name": "entity.name.function.macro.swan",
+          "match": "\\bCALL_[a-zA-Z0-9_]+\\b"
+        },
+        {
+          "name": "entity.name.function.agent.swan",
+          "match": "\\bAGENT_[a-zA-Z0-9_]+\\b"
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "name": "variable.language.context.swan",
+          "match": "\\{Context\\}"
+        },
+        {
+          "name": "variable.other.braced.swan",
+          "match": "\\{\\$[a-zA-Z_][a-zA-Z0-9_]*\\}"
+        },
+        {
+          "name": "variable.other.swan",
+          "match": "\\$[a-zA-Z_][a-zA-Z0-9_]*"
+        }
+      ]
+    },
+    "urls-paths": {
+      "patterns": [
+        {
+          "name": "markup.underline.link.swan",
+          "match": "https?://\\S+"
+        },
+        {
+          "name": "constant.other.path.swan",
+          "match": "(?<=[\\s\"']|^)(?:\\.\\.?\\/[a-zA-Z0-9_\\-\\.\\/]+|\\/(?:[a-zA-Z0-9_\\-\\.]+\\/[a-zA-Z0-9_\\-\\.\\/]*|[a-zA-Z0-9_\\-]+\\.[a-zA-Z0-9_\\-\\.]+)|[a-zA-Z_][a-zA-Z0-9_\\-]*\\.[a-zA-Z]{2,5})\\b"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.swan",
+          "match": "\\b\\d+(\\.\\d+)?\\b"
+        }
+      ]
+    },
+    "delimiters": {
+      "patterns": [
+        {
+          "name": "punctuation.separator.colon.swan",
+          "match": ":"
+        },
+        {
+          "name": "punctuation.section.brackets.swan",
+          "match": "[\\[\\]\\{\\}]"
+        }
+      ]
+    }
+  }
+}
