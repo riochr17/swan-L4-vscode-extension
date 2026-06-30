@@ -2,7 +2,7 @@
   "name": "swan-l4-vscode",
   "displayName": "SWAN L4 Language Support",
   "description": "Syntax highlighting, autocompletion snippets, and language configuration for the SWAN L4 DSL.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "AGPL-3.0-only",
   "publisher": "NaivDeveloper",
   "icon": "icon.png",
@@ -32,7 +32,11 @@
         "extensions": [
           ".l4"
         ],
-        "configuration": "./language-configuration.json"
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/swan-logo-dark.png",
+          "dark": "./icons/swan-logo-light.png"
+        }
       }
     ],
     "grammars": [
