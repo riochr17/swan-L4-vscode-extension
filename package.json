@@ -3,7 +3,12 @@
   "displayName": "SWAN L4 Language Support",
   "description": "Syntax highlighting, autocompletion snippets, and language configuration for the SWAN L4 DSL.",
   "version": "1.0.0",
+  "license": "AGPL-3.0-only",
   "publisher": "swan-l4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/riochr17/swan-l4-vscode-extension.git"
+  },
   "engines": {
     "vscode": "^1.0.0"
   },
