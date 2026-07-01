@@ -56,6 +56,14 @@
     ],
     "description": "Define infinite execution loop block"
   },
+  "PARALEL Block": {
+    "prefix": "PARALEL",
+    "body": [
+      "PARALEL:",
+      "\t${1:CALL_MACRO}"
+    ],
+    "description": "Define concurrent execution block"
+  },
   "IF Block": {
     "prefix": "IF",
     "body": [

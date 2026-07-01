@@ -59,7 +59,7 @@
       "patterns": [
         {
           "name": "keyword.other.debug.swan",
-          "match": "\\[(SAY\\s+THINK|THINK|SAY|LISTEN|ASK|EXIT\\s+LOOP|CONTINUE\\s+LOOP|EXIT|ELSE|LOOP|TITLE|#DEFINE|FIND|CALL_[a-zA-Z0-9_]+|AGENT_[a-zA-Z0-9_]+)\\]"
+          "match": "\\[(SAY\\s+THINK|THINK|SAY|LISTEN|ASK|EXIT\\s+LOOP|CONTINUE\\s+LOOP|EXIT|ELSE|LOOP|PARALEL|TITLE|#DEFINE|FIND|CALL_[a-zA-Z0-9_]+|AGENT_[a-zA-Z0-9_]+)\\]"
         }
       ]
     },
@@ -179,7 +179,7 @@
         },
         {
           "name": "keyword.other.swan",
-          "match": "\\b(TITLE|SAY\\s+THINK|SAY|LISTEN|THINK|ASK|FIND)\\b"
+          "match": "\\b(TITLE|SAY\\s+THINK|SAY|LISTEN|THINK|ASK|FIND|PARALEL)\\b"
         },
         {
           "name": "keyword.operator.word.swan",
