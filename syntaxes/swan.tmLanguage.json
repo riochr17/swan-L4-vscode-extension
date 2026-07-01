@@ -10,6 +10,7 @@
     { "include": "#conditionals-block" },
     { "include": "#write-block" },
     { "include": "#read-block" },
+    { "include": "#find-block" },
     { "include": "#keywords" },
     { "include": "#macros" },
     { "include": "#variables" },
@@ -58,7 +59,7 @@
       "patterns": [
         {
           "name": "keyword.other.debug.swan",
-          "match": "\\[(SAY\\s+THINK|THINK|SAY|LISTEN|ASK|EXIT\\s+LOOP|CONTINUE\\s+LOOP|EXIT|ELSE|LOOP|TITLE|#DEFINE|CALL_[a-zA-Z0-9_]+|AGENT_[a-zA-Z0-9_]+)\\]"
+          "match": "\\[(SAY\\s+THINK|THINK|SAY|LISTEN|ASK|EXIT\\s+LOOP|CONTINUE\\s+LOOP|EXIT|ELSE|LOOP|TITLE|#DEFINE|FIND|CALL_[a-zA-Z0-9_]+|AGENT_[a-zA-Z0-9_]+)\\]"
         }
       ]
     },
@@ -137,6 +138,31 @@
         }
       ]
     },
+    "find-block": {
+      "patterns": [
+        {
+          "begin": "\\b(FIND)\\b|(\\[FIND\\])",
+          "beginCaptures": {
+            "1": { "name": "keyword.other.swan" },
+            "2": { "name": "keyword.other.debug.swan" }
+          },
+          "end": "$",
+          "patterns": [
+            {
+              "match": "\\b\\d+/\\d+\\b",
+              "name": "constant.numeric.ratio.swan"
+            },
+            {
+              "match": "(\\{\\$[a-zA-Z_][a-zA-Z0-9_]*\\}|\\{Context\\})(?=\\s*(?://.*)?$)",
+              "name": "support.class.swan"
+            },
+            { "include": "#variables" },
+            { "include": "#multiline-strings" },
+            { "include": "#strings" }
+          ]
+        }
+      ]
+    },
     "keywords": {
       "patterns": [
         {
@@ -153,7 +179,7 @@
         },
         {
           "name": "keyword.other.swan",
-          "match": "\\b(TITLE|SAY\\s+THINK|SAY|LISTEN|THINK|ASK)\\b"
+          "match": "\\b(TITLE|SAY\\s+THINK|SAY|LISTEN|THINK|ASK|FIND)\\b"
         },
         {
           "name": "keyword.operator.word.swan",
