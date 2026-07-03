@@ -106,10 +106,12 @@
           "end": "$",
           "patterns": [
             {
-              "match": "\\G\\s+(\\S+)",
-              "captures": {
-                "1": { "name": "constant.other.path.swan" }
-              }
+              "begin": "\\G\\s+",
+              "end": "(?=\\s|$)",
+              "contentName": "constant.other.path.swan",
+              "patterns": [
+                { "include": "#variables" }
+              ]
             },
             { "include": "#variables" },
             { "include": "#multiline-strings" },
@@ -129,10 +131,12 @@
           "end": "$",
           "patterns": [
             {
-              "match": "\\G\\s+(\\S+)",
-              "captures": {
-                "1": { "name": "constant.other.path.swan" }
-              }
+              "begin": "\\G\\s+",
+              "end": "(?=\\s|$)",
+              "contentName": "constant.other.path.swan",
+              "patterns": [
+                { "include": "#variables" }
+              ]
             }
           ]
         }
