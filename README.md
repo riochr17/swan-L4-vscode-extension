@@ -6,16 +6,16 @@ This extension provides syntax highlighting, auto-completions, and editor config
 
 - **Syntax Highlighting**: Complete token support mapping to standard VS Code scopes matching Monaco's Monarch token styles.
   - **Pragmas**: `TITLE`, `#DEFINE`.
-  - **Primitives**: `SAY`, `SAY THINK`, `LISTEN`, `THINK`, `ASK`, `READ`, `WRITE`, `EXIT`.
-  - **Control Flow**: `IF`, `ELSE`, `LOOP`, `EXIT LOOP`, `CONTINUE LOOP`.
+  - **Primitives**: `SAY`, `SAY THINK`, `LISTEN`, `THINK`, `ASK`, `READ`, `WRITE`, `EXIT`, `CLEAR CONTEXT`.
+  - **Control Flow**: `IF`, `ELSE`, `LOOP`, `EXIT LOOP`, `CONTINUE LOOP`, `ITERATE`, `EXIT ITERATION`, `CONTINUE ITERATION`.
   - **Debug Mode Syntax**: Highlighting of bracket-wrapped primitives (e.g. `[SAY]`, `[IF]`, `[CALL_CHECK_STOCK]`).
   - **Variables**: Plain (`$var`), braced (`{$var}`), and predefined context (`{Context}`).
   - **Strings**: Multi-line triple backtick codeblocks and double-quoted strings.
   - **URLs & Paths**: Highlighting of URLs and file/directory paths.
 - **Smart Formatting**:
   - Auto-closing brackets, quotes, and backticks.
-  - Automatic indentation after colons (e.g., when pressing Enter after `LOOP:` or `IF CONTAINS "exit":`).
-- **Autocomplete Snippets**: Direct completions for standard statements and loops like `TITLE`, `#DEFINE`, `SAY`, `LOOP`, and `IF`.
+  - Automatic indentation after colons (e.g., when pressing Enter after `LOOP:`, `ITERATE:`, or `IF CONTAINS "exit":`).
+- **Autocomplete Snippets**: Direct completions for standard statements and loops like `TITLE`, `#DEFINE`, `SAY`, `LOOP`, `ITERATE`, and `IF`.
 
 ## Installation
 

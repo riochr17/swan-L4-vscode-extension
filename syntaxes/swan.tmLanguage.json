@@ -8,6 +8,7 @@
     { "include": "#strings" },
     { "include": "#keywords-debug" },
     { "include": "#conditionals-block" },
+    { "include": "#iterate-block" },
     { "include": "#write-block" },
     { "include": "#read-block" },
     { "include": "#find-block" },
@@ -59,7 +60,7 @@
       "patterns": [
         {
           "name": "keyword.other.debug.swan",
-          "match": "\\[(SAY\\s+THINK|THINK|SAY|LISTEN|ASK|EXIT\\s+LOOP|CONTINUE\\s+LOOP|EXIT|ELSE|LOOP|PARALEL|TITLE|#DEFINE|FIND|CALL_[a-zA-Z0-9_]+|AGENT_[a-zA-Z0-9_]+)\\]"
+          "match": "\\[(SAY\\s+THINK|THINK|SAY|LISTEN|ASK|EXIT\\s+LOOP|CONTINUE\\s+LOOP|EXIT\\s+ITERATION|CONTINUE\\s+ITERATION|EXIT|ELSE|LOOP|ITERATE|PARALEL|TITLE|#DEFINE|FIND|CLEAR\\s+CONTEXT|CALL_[a-zA-Z0-9_]+|AGENT_[a-zA-Z0-9_]+)\\]"
         }
       ]
     },
@@ -91,6 +92,26 @@
               "name": "meta.expression.condition.swan",
               "match": "[^:\\$\\s\"]+"
             }
+          ]
+        }
+      ]
+    },
+    "iterate-block": {
+      "patterns": [
+        {
+          "begin": "\\b(ITERATE)\\b|(\\[ITERATE\\])",
+          "beginCaptures": {
+            "1": { "name": "keyword.control.swan" },
+            "2": { "name": "keyword.control.debug.swan" }
+          },
+          "end": "(:)|(?=$)",
+          "endCaptures": {
+            "1": { "name": "punctuation.separator.colon.swan" }
+          },
+          "patterns": [
+            { "include": "#variables" },
+            { "include": "#strings" },
+            { "include": "#numbers" }
           ]
         }
       ]
@@ -171,11 +192,11 @@
       "patterns": [
         {
           "name": "keyword.control.swan",
-          "match": "\\b(ELSE|LOOP)\\b"
+          "match": "\\b(ELSE|LOOP|ITERATE)\\b"
         },
         {
           "name": "keyword.control.flow.swan",
-          "match": "\\b(EXIT\\s+LOOP|CONTINUE\\s+LOOP|EXIT)\\b"
+          "match": "\\b(EXIT\\s+LOOP|CONTINUE\\s+LOOP|EXIT\\s+ITERATION|CONTINUE\\s+ITERATION|EXIT)\\b"
         },
         {
           "name": "keyword.control.directive.swan",
@@ -183,7 +204,7 @@
         },
         {
           "name": "keyword.other.swan",
-          "match": "\\b(TITLE|SAY\\s+THINK|SAY|LISTEN|THINK|ASK|FIND|PARALEL)\\b"
+          "match": "\\b(TITLE|SAY\\s+THINK|SAY|LISTEN|THINK|ASK|FIND|PARALEL|CLEAR\\s+CONTEXT)\\b"
         },
         {
           "name": "keyword.operator.word.swan",

@@ -99,5 +99,34 @@
       "FIND ${1:3/15} ${2:keywords} ${3:{\\$context\\}}"
     ],
     "description": "Semantic search top chunks out of total chunks from a context"
+  },
+  "ITERATE Block": {
+    "prefix": "ITERATE",
+    "body": [
+      "ITERATE${1: {\\$variable\\}}:",
+      "\t${2:SAY message}"
+    ],
+    "description": "Define iterate loop block"
+  },
+  "EXIT ITERATION Statement": {
+    "prefix": "EXIT ITERATION",
+    "body": [
+      "EXIT ITERATION"
+    ],
+    "description": "Exit active iteration block"
+  },
+  "CONTINUE ITERATION Statement": {
+    "prefix": "CONTINUE ITERATION",
+    "body": [
+      "CONTINUE ITERATION"
+    ],
+    "description": "Continue active iteration block"
+  },
+  "CLEAR CONTEXT Statement": {
+    "prefix": "CLEAR CONTEXT",
+    "body": [
+      "CLEAR CONTEXT"
+    ],
+    "description": "Clear the active pipeline context"
   }
 }
