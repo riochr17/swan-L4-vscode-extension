@@ -60,7 +60,7 @@
       "patterns": [
         {
           "name": "keyword.other.debug.swan",
-          "match": "\\[(SAY\\s+THINK|THINK|SAY|LISTEN|ASK|EXIT\\s+LOOP|CONTINUE\\s+LOOP|EXIT\\s+ITERATION|CONTINUE\\s+ITERATION|EXIT|ELSE|LOOP|ITERATE|PARALEL|TITLE|#DEFINE|FIND|CLEAR\\s+CONTEXT|CALL_[a-zA-Z0-9_]+|AGENT_[a-zA-Z0-9_]+)\\]"
+          "match": "\\[(SAY\\s+THINK|THINK|SAY|LISTEN|ASK|EXIT\\s+LOOP|CONTINUE\\s+LOOP|EXIT\\s+ITERATION|CONTINUE\\s+ITERATION|EXIT|ELSE|LOOP|ITERATE|PARALEL|TITLE|#DEFINE|FIND|CLEAR\\s+CONTEXT|(?<!CLEAR\\s)CONTEXT|CALL_[a-zA-Z0-9_]+|AGENT_[a-zA-Z0-9_]+)\\]"
         }
       ]
     },
@@ -192,7 +192,7 @@
       "patterns": [
         {
           "name": "keyword.control.swan",
-          "match": "\\b(ELSE|LOOP|ITERATE)\\b"
+          "match": "\\b(ELSE|LOOP|ITERATE|(?<!CLEAR\\s)CONTEXT)\\b"
         },
         {
           "name": "keyword.control.flow.swan",

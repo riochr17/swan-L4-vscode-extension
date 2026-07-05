@@ -7,8 +7,8 @@ This extension provides syntax highlighting, auto-completions, and editor config
 - **Syntax Highlighting**: Complete token support mapping to standard VS Code scopes matching Monaco's Monarch token styles.
   - **Pragmas**: `TITLE`, `#DEFINE`.
   - **Primitives**: `SAY`, `SAY THINK`, `LISTEN`, `THINK`, `ASK`, `READ`, `WRITE`, `EXIT`, `CLEAR CONTEXT`.
-  - **Control Flow**: `IF`, `ELSE`, `LOOP`, `EXIT LOOP`, `CONTINUE LOOP`, `ITERATE`, `EXIT ITERATION`, `CONTINUE ITERATION`.
-  - **Debug Mode Syntax**: Highlighting of bracket-wrapped primitives (e.g. `[SAY]`, `[IF]`, `[CALL_CHECK_STOCK]`).
+  - **Control Flow**: `IF`, `ELSE`, `LOOP`, `EXIT LOOP`, `CONTINUE LOOP`, `ITERATE`, `EXIT ITERATION`, `CONTINUE ITERATION`, `CONTEXT`.
+  - **Debug Mode Syntax**: Highlighting of bracket-wrapped primitives (e.g. `[SAY]`, `[IF]`, `[CONTEXT]`, `[CALL_CHECK_STOCK]`).
   - **Variables**: Plain (`$var`), braced (`{$var}`), and predefined context (`{Context}`).
   - **Strings**: Multi-line triple backtick codeblocks and double-quoted strings.
   - **URLs & Paths**: Highlighting of URLs and file/directory paths.

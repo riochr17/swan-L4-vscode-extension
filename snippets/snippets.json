@@ -128,5 +128,13 @@
       "CLEAR CONTEXT"
     ],
     "description": "Clear the active pipeline context"
+  },
+  "CONTEXT Block": {
+    "prefix": "CONTEXT",
+    "body": [
+      "CONTEXT:",
+      "\t${1:SAY message}"
+    ],
+    "description": "Execute a block of statements and aggregate/combine their outputs into context"
   }
 }
